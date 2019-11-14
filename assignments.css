@@ -4,10 +4,13 @@ table {
     width: 100%;
 }
 
+thead {
+    background-color: cornflowerblue;
+}
+
 td,
 th {
     border: 1px solid #87ceeb;
-    text-align: left;
     padding: 8px;
 }
 
