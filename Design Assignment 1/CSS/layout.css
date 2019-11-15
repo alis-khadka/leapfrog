@@ -1,0 +1,42 @@
+.root-container {
+    width: auto;
+}
+
+.header-top {
+    padding: 21px 172px 29px 172px;
+}
+
+.logo {
+    padding-right: 0px;
+}
+
+.nav-bar {
+    margin-bottom: 5px;
+    padding-top: 6px;
+}
+
+.nav-gap {
+    padding-right: 41px;
+}
+
+.nav-gap:last-child {
+    padding-right: 0px;
+}
+
+.header-bottom {
+    padding: 35px 172px 32px 172px;
+    background: #ececec;
+}
+
+.breadcrumb {
+    padding-right: 8px;
+}
+
+.breadcrumb:last-child {
+    padding-right: 0px;
+}
+
+.header-bottom-arrow {
+    margin-top: 0px;
+    padding-left: 162px;
+}
