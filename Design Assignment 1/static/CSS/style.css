@@ -1,0 +1,364 @@
+a {
+    text-decoration: none;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+ul.no-bullet {
+    list-style-type: none;
+}
+
+.header-top {
+    background-image: url("../images/header-top-background.png");
+    background-repeat: repeat-x;
+}
+
+.header-top .navbar li a {
+    color: #c2e6e2;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+}
+
+.header-top .navbar li .navbar-button a:hover {
+    background-image: url(../images/navbar-hover-button.png);
+}
+
+.header-top .navbar li .navbar-button a.active {
+    background-image: url(../images/navbar-hover-button.png);
+}
+
+/* Search icon */
+.search-text-input {
+    display: none;
+    background-image: url(../images/search-text-here-frame-left.png),
+    url(../images/search-text-here-frame-right.png),url(../images/search-text-here-frame-comment.png),
+    url(../images/search-text-here-frame-fix-top.png), 
+    url(../images/search-text-here-frame-fix-bottom.png);
+    background-position: center, top left;
+    background-repeat: no-repeat, repeat-x;
+    position: absolute;
+    background-color: white;
+    right: 0px;
+    top: 50px;
+    width: 200px;
+}
+  
+.search-text-input input {
+    align-content: center;
+    line-height: 47px;
+    border: 0px;
+    background: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.navbar li:hover .search-text-input {
+    display: block;
+}
+
+.top-bottom-gap {
+    padding-top: 61px;
+}
+
+.top-bottom-gap .mid-semi-arc {
+    position: relative;
+    padding-right: 18px;
+}
+
+.top-bottom-gap .mid-semi-arc:last-child {
+    padding-right: 0px;
+}
+
+.top-bottom-gap .mid-semi-arc h4 {
+    position: absolute;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #96a1a1;
+    text-align: center;
+    width: 34px;
+    height: 21px;
+    bottom: 13px;
+    left: 43px;
+}
+
+.top-bottom-gap .arc-caption h4 {
+    padding-top: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #96a1a1;
+    text-align: center;
+}
+
+.block1 .side-content-right .mid {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.block1-bottom .john h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #b2b2b2;
+    padding-left: 42px;
+}
+
+/* Our Team Block 2 */
+
+.block2 {
+    background-image: url(../images/our-team-background.png);
+    background-repeat: repeat-x;
+}
+
+.block2 .team-heading h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    color: #899495;
+    text-align: center;
+    padding-top: 71px;
+    padding-bottom: 80px
+}
+
+.block2 .team-mid {
+    padding-bottom: 122px;
+}
+
+.card {
+    margin-right: 22px;
+    position: relative;
+}
+
+.card:last-child {
+    margin-right: 0px;
+}
+
+.card-first {
+   background-color: #f8f8f8; 
+   background-image: url("../images/card-container.png");
+   background-repeat: no-repeat;
+   background-position:  center;
+}
+
+.card:hover .card-first {
+    background-image: url(../images/card-hover.png);
+}
+
+.card-second {
+    height: 54px;
+    width: 200px;
+    background-image: url("../images/card-name-plate.png");
+    background-color: #99a3a4;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 54px;
+    color: #c9dfdc;
+    position: absolute;
+    top: 284px;
+    left: 33px;
+}
+
+.card:hover .card-second {
+    background-image: url(../images/card-name-plate-active.png);
+}
+
+.card-third {
+    position: absolute;
+    height: 221px;
+    width: 198px;
+    top: 38px;
+    left: 37px;
+    display: none;
+}
+
+
+.card:hover .card-third {
+    display: block;
+}
+
+.card-third p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    color: #eff1f0;
+}
+
+.card-third .image-links {
+    padding-top: 58px;
+}
+
+.card-third .image-links a {
+    padding-right: 8px;
+}
+
+.card-third .image-links a:last-child {
+    padding-right: 0px;
+}
+
+/* Best Solution is the simplest idea */
+
+.team-best-solution .top {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    color: #edaeab;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.team-best-solution .bottom {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #99a3a4;
+    text-align: center;
+    line-height: 19px;
+    padding-bottom: 30px;
+}
+
+/* Happy Client Bar */
+
+.block3 {
+    background-color: #f3f3f3;
+}
+
+.block3 .happy-client-bar {
+    background-image: url(../images/happy-clients-bar.png);
+    background-repeat: repeat-x;
+}
+
+.block3 .happy-client-bar .happy-client {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #a3acac;
+    line-height: 40px;
+    vertical-align: middle;
+    background-color: #f3f3f3;
+    padding-right: 17px;
+}
+
+.block3 .left-arrow {
+    height: 40px;
+    width: 40px;
+    padding-right: 19px;
+    background-image: url(../images/left-arrow.png);
+    background-repeat: no-repeat;
+}
+
+.block3 a:hover .left-arrow {
+    background-image: url(../images/left-arrow-active.png);
+}
+
+.block3 .right-arrow {
+    height: 40px;
+    width: 40px;
+    padding-right: 19px;
+    background-image: url(../images/right-arrow.png);
+    background-repeat: no-repeat;
+}
+
+.block3 a:hover .right-arrow {
+    background-image: url(../images/right-arrow-active.png);
+}
+
+.block4 {
+    background-color: #f3f3f3;
+}
+
+.block4 .clients {
+    padding-top: 11px;
+    padding-bottom: 75px;
+}
+
+.block4 .clients li {
+    padding-right: 70px;
+}
+
+.block4 .clients li:last-child {
+    padding-right: 0px;
+}
+.block4 .clients li:first-child {
+    padding-left: 23px;
+}
+
+/* footer */
+
+.footer {
+    background-image: url(../images/footer-background.png);
+    background-repeat: repeat-x;
+}
+
+.footer .footer-top-gap .side-content-left .top .bottom p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: justify;
+    line-height: 23px;
+    color: #f5fbfa;    
+}
+
+.footer .phone-email h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left;
+    line-height: 14px;
+    vertical-align: middle;
+    color: #f5fbfa;
+}
+
+.footer .phone-email p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    line-height: 14px;
+    color: #f5fbfa;
+    padding-bottom: 2px;
+    padding-left: 21px;
+}
+
+.footer .footer-mid-content h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #5a9c98;
+    padding-bottom: 31px;
+
+}
+
+.footer ul.footer-list-style-image li {
+    list-style-image: url(../images/footer-list-style-image.png);
+    line-height: 10px;
+    padding-bottom: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.footer ul.footer-list-style-image li:last-child {
+    padding-block: 0px;
+} 
+
+.footer ul.footer-list-style-image li a{
+    color: #f5fbfa;
+}
+
+.footer .side-content-right h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    color: #f5fbfa;
+}
+
+.footer .footer-bottom {
+    background-color: #6bb4ad;
+    line-height: 44px;
+}
+
+.footer .footer-bottom .copyright {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #c6e8e5;
+} 
