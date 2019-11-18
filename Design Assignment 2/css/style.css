@@ -1,3 +1,60 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+
+/* header start */
+.header .header-top .navbar li a {
+    color: #c2e6e2;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    line-height: 80px;
+}
+
+.header .header-top .navbar li .navbar-button a:hover {
+    background-image: url(../images/navbar-hover-button.png);
+}
+
+.header .header-top .navbar li .navbar-button a.active {
+    background-image: url(../images/navbar-hover-button.png);
+}
+
+/* Search icon */
+.header .search-text-input {
+    display: none;
+    background-image: url(../images/search-text-here-frame-left.png),
+    url(../images/search-text-here-frame-right.png),url(../images/search-text-here-frame-comment.png),
+    url(../images/search-text-here-frame-fix-top.png), 
+    url(../images/search-text-here-frame-fix-bottom.png);
+    background-position: center, top left;
+    background-repeat: no-repeat, repeat-x;
+    position: absolute;
+    background-color: white;
+    right: 0px;
+    top: 50px;
+    width: 200px;
+}
+  
+.header .search-text-input input {
+    align-content: center;
+    line-height: 47px;
+    border: 0px;
+    background: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.header .navbar li:hover .search-text-input {
+    display: block;
+}
+/* header end */
+
+
 .header-top{
     background-color: #76c7c1;
 
