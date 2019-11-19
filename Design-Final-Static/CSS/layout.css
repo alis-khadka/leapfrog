@@ -1,0 +1,22 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.page-wrapper{
+    width: 100%;
+    min-width: 71.8750em;
+    
+}
+
+.wrapper {
+    width:  71.8750em;
+    
+    margin: 0 auto;
+}
+
+/* navbar-header start */
+

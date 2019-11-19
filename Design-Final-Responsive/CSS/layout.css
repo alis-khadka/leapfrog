@@ -1,0 +1,98 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.page-wrapper{
+    /* width: 100%; */
+    min-width: 71.8750em;
+}
+
+.wrapper {
+    width:  71.8750em;
+    margin: auto;
+}
+
+/* navbar-header start */
+
+.navbar-header {
+    background-image: url('../images/navbar-header-background.png');
+    width: 100%;
+    height: auto;
+}
+
+.navbar {
+    background-color:rgba(0, 0, 0, 1);
+    height: 4.3750em;
+}
+
+.navbar-logo {
+    padding-left: 25px;
+    padding-top: 21px;
+    padding-bottom: 22px;
+}
+
+.navbar .burger {
+    padding: 20px;
+}
+
+.navbar .burger-links {
+    display: none;
+}
+
+.navbar .burger:hover .burger-links {
+    display: block;
+}
+.navbar .navigation-link {
+    display: none;
+}
+
+.navbar .navigation-link ul li {
+    float: left;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    padding-right: 28px;
+    line-height: 70px;
+    vertical-align: middle;
+}
+
+.navbar ul li:last-child {
+    padding-right: 13px;
+}
+
+.navbar ul li a {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.navbar ul li a:hover {
+    background-color: blue;
+}
+
+/* navbar-header end */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {...}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {...}
