@@ -5,17 +5,15 @@ ul.no-bullet {
 /* navBar start */
 
 .navbar-header {
-    background-image: url(../images/navbar-header-background.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: auto;
-    min-width: 71.8750em;
+    background-color: #000000;
+    background-image: url('../images/navbar-header-background.png');
+    background-size: cover;
+    
 }
 
 .navbar {
     background-color: black;
-    min-width: 71.8750em;
+    
 }
 
 .navbar figure.navbar-logo {
@@ -48,7 +46,7 @@ ul.no-bullet {
 /* header start */
 
 header .header-left {
-    width: 40%;
+    width: 43.4782%;
     padding-left: 25px;
     padding-bottom: 139px;
 }
@@ -58,7 +56,7 @@ header figure.header-logo {
 }
 
 header .header-left h2 {
-    /* font-family: ; */
+    font-family: 'PT Sans', sans-serif;
     font-size: 36px;
     line-height: 44px;
     vertical-align: top;
@@ -70,6 +68,7 @@ header figure.header-divider {
 }
 
 header .header-left p {
+    font-family: 'PT Sans', sans-serif;
     font-size: 16px;
     line-height: 23px;
     vertical-align: top;
@@ -77,11 +76,16 @@ header .header-left p {
     padding-bottom: 36px;
 }
 
+header .header-left a {
+    text-decoration: none;
+}
+
 header .header-left a span.header-download-button {
     padding: 14px 38px 13px 30px;
     border-style: solid;
     border-width: 2px;
     border-color: #ffffff;
+    font-family: 'PT Sans', sans-serif;
     font-size: 15px;
     color: #ffffff;
 }
@@ -135,6 +139,12 @@ footer {
     background-color: #000000;
 }
 
+footer .social-share {
+    padding: 22px 0px 14px 0px;
+    width: auto;
+    margin: 0px auto;
+}
+
 footer .social-share figure {
     padding-left: 25px;
     float: left;
@@ -155,7 +165,10 @@ footer .social-share figure a:hover {
 
 footer .copyright {
     font-size: 12px;
+    font-family: 'PT Sans', sans-serif;
     color: #ffffff;
+    padding-bottom: 15px;
+    text-align: center;
 }
 
 /* footer end */

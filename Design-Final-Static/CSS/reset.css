@@ -11,3 +11,9 @@
 .clearfix:after{
 	clear: both;
 }
+
+img{
+    width: auto;
+    height: auto;
+    display: block;
+}
