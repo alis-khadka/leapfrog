@@ -8,13 +8,13 @@
 
 .page-wrapper{
     width: 100%;
-    min-width: 1150px;
+    min-width: 71.8750em;
     height: auto;
 }
 
 .wrapper {
-    width: 1150px;
-    min-width: 1150px;
+    width: 71.8750em;
+    min-width: 71.8750em;
     margin: 0 auto;
 }
 

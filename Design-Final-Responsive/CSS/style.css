@@ -45,8 +45,7 @@ ul.no-bullet {
 /* header start */
 
 header .header-left {
-    /* width: 43.4782%; */
-    width: 499px;
+    width: 43.4782%;
     padding-left: 25px;
     padding-bottom: 139px;
 }
@@ -96,8 +95,7 @@ header .header-left a:hover .header-download-button {
 }
 
 header .header-right {
-    /* width: 35.4782%; */
-    width: 408px;
+    width: 35.4782%;
     padding: 140px 24px 0px 24px;
 }
 
@@ -220,7 +218,7 @@ header .header-right form .form-button input {
 }
 
 .features .tabs-section .tabs {
-    width: 146px;
+    width: 12.6956%;
 }
 
 .features .tabs-section .tabs ul {
@@ -231,7 +229,7 @@ header .header-right form .form-button input {
 .features .tabs-section .tabs li {
     background-color: #333333;
     display: inline-block;
-    width: 110px;
+    width: 100%;
     line-height: 110px;
     text-align: center;
     box-shadow: 1px 0px 1px #c7c7c7;
@@ -263,12 +261,13 @@ header .header-right form .form-button input {
 /* Features photo description start */
 
 .photo-description {
-    width: 922px;
+    width: 80.1739%;
     padding-left: 25px;
 }
 
 .photo-description section {
-    width: 423px;
+    width: 45.8785%;
+    /* 423/922 =45.8785 */
 }
 
 .photo-description section h2 {
@@ -422,12 +421,14 @@ header .header-right form .form-button input {
 
 .process ul {
     padding-top: 80px;
+    padding-left: 150px;
     margin: 0 auto;
 }
 
 .process ul li {
     float: left;
     padding-right: 21px;
+    width: 27.1304%;
 }
 
 .process ul li:last-child {
@@ -453,7 +454,6 @@ header .header-right form .form-button input {
     font-size: 14px;
     color: #86878b;
     display: inline-block;
-    width: 312px;
     text-align: center;
     font-weight: normal;
 }
@@ -490,7 +490,7 @@ header .header-right form .form-button input {
 
 .pricing .pricing-package {
     padding-top: 80px;
-    width: 343px;
+    width: 29.8260%;
 }
 
 .pricing .pricing-package .heading h2 {
@@ -601,12 +601,12 @@ header .header-right form .form-button input {
 }
 
 .testimonial .customers ul {
-    margin: 0 auto;
+    padding-left: 190px;
 }
 
 .testimonial .customers ul li {
     float: left;
-    padding-right: 120px;
+    width: 30%;
 }
 
 .testimonial .customers ul li:last-child {
@@ -621,10 +621,12 @@ header .header-right form .form-button input {
     line-height: 17px;
     color: #86878b;
     padding: 24px 13px 37px 12px;
+    width: 100%;
 }
 
 .testimonial .customers ul li .upper p {
-    width: 248px;
+    /* width: 248px; */
+    width: 63.1043%;
     text-align: left;
 }
 
@@ -686,7 +688,7 @@ header .header-right form .form-button input {
 .custom-section a {
     text-decoration: none;
     display: block;
-    width: 137px;
+    width: 8.5625em;
     margin: 0 auto;
 }
 
@@ -744,11 +746,11 @@ header .header-right form .form-button input {
 }
 
 .contact form .left {
-    width: 423px;
+    width: 36.7826%;
 }
 
 .contact form .right {
-    width: 527px;
+    width: 45.8260%;
 }
 
 .contact form .left input {
@@ -788,7 +790,7 @@ header .header-right form .form-button input {
 
 .contact form .form-button {
     display: block;
-    width: 146px;
+    width: 9.125em;
     margin: 0 auto;
 }
 
