@@ -8,7 +8,6 @@ ul.no-bullet {
     background-color: #000000;
     background-image: url('../images/navbar-header-background.png');
     background-size: cover;
-    
 }
 
 .navbar {
@@ -46,7 +45,7 @@ ul.no-bullet {
 /* header start */
 
 header .header-left {
-    width: 43.4782%;
+    width: 499px;
     padding-left: 25px;
     padding-bottom: 139px;
 }
@@ -96,7 +95,7 @@ header .header-left a:hover .header-download-button {
 }
 
 header .header-right {
-    width: 35.4782%;
+    width: 408px;
     padding: 140px 24px 0px 24px;
 }
 
@@ -212,13 +211,10 @@ header .header-right form .form-button input {
 
 /* Features tabs start */
 
-.features {
-    background-color: #f5f5f5;
-}
-
 .features .tabs-section {
     padding-top: 147px;
     padding-bottom: 116px;
+    background-color: #f5f5f5;
 }
 
 .features .tabs-section .tabs {
@@ -291,7 +287,525 @@ header .header-right form .form-button input {
     padding-bottom: 28px;
 }
 
+.features .photo-description a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.features a span.download-button {
+    padding: 14px 38px 13px 30px;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    background-color: #333333;
+}
+
+.features a:hover span.download-button {
+    background-color: #ff8b38;
+}
+
 /* Features photo description end */
+
+/* Feature Sublist Section start */
+
+.features .sublist {
+    background-color: #ffffff;
+    padding-top: 108px;
+    padding-bottom: 134px;
+}
+
+.features .feature-2-3 figure.photo {
+    padding-left: 27px;
+    padding-top: 19px;
+}
+
+.features .feature-2-3 .text h2 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #212121;
+    padding-bottom: 30px;
+}
+
+.features .feature-2-3 .text p.upper {
+    padding-top: 31px;
+    padding-bottom: 47px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+    color: #86878b;
+    width: 368px
+}
+
+.features .feature-2-3 .text ul.lower li {
+    padding-bottom: 23px;
+} 
+
+.features .feature-2-3 .text ul.lower li:last-child {
+    padding-bottom: 0px;
+}
+
+.features .feature-2-3 .text ul.lower figure {
+    padding-right: 31px;
+}
+
+.features .feature-2-3 .text ul.lower div.right {
+    width: 394px;
+}
+
+.features .feature-2-3 .text ul.lower div.right h3 {
+    padding-bottom: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #212121;
+}
+
+.features .feature-2-3 .text ul.lower div.right p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #86878b;
+}
+
+/* Feature Sublist Section start */
+
+/* Feature Standard Picture start */
+
+.features .picture-section {
+    background-color: #f5f5f5;
+    padding-top: 108px;
+    padding-bottom: 134px;
+}
+
+.features .picture-section .text p.upper {
+    padding-bottom: 20px;
+}
+
+.features .picture-section .text p.upper:last-child {
+    padding-top: 0px;
+}
+
+/* Feature Standard Picture end */
+
+/* Our Process Start */
+
+.process {
+    background-color: #ffffff;
+    padding-top: 108px;
+    padding-bottom: 97px;
+}
+
+.process h2 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 36px;
+    color: #212121;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.process figure img {
+    padding-bottom: 30px;
+    margin: 0 auto;
+}
+
+.process span {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #86878b;
+    text-align: center;
+    display: block;
+}
+
+.process ul {
+    padding-top: 80px;
+    margin: 0 auto;
+}
+
+.process ul li {
+    float: left;
+    padding-right: 21px;
+}
+
+.process ul li:last-child {
+    padding-right: 0px;
+}
+
+.process ul li figure {
+    display: inline;
+}
+
+.process ul li h3 {
+    padding-bottom: 30px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    color: #333333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.process ul li p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #86878b;
+    display: inline-block;
+    width: 312px;
+    text-align: center;
+    font-weight: normal;
+}
+
+/* Our Process End */
+
+/* Pricing Start */
+
+.pricing {
+    background-color: #f5f5f5;
+    padding-top: 108px;
+    padding-bottom: 96px;
+}
+
+.pricing h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    color: #212121;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.pricing figure img {
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.pricing p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #86878b;
+    text-align: center;
+}
+
+.pricing .pricing-package {
+    padding-top: 80px;
+    width: 343px;
+}
+
+.pricing .pricing-package .heading h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #333333;
+    line-height: 59px;
+    vertical-align: middle;
+    padding: 0;
+    margin-bottom: 1px;
+    box-shadow: 1px 0px 1px #ffffff;
+}
+.price {
+    background-color: #333333;
+    text-align: center;
+    padding-bottom: 19px;
+}
+
+.pricing .pricing-package {
+    padding-right: 40px;
+}
+
+.pricing .pricing-package:last-child {
+    padding-right: 0px;
+}
+
+.pricing .pricing-package .price figure {
+    padding-top: 32px;
+    padding-bottom: 18px;
+}
+
+.pricing .pricing-package .price figure img {
+    margin: 0 auto;
+    padding-bottom: 0px;
+}
+
+.pricing .pricing-package .price span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #999999;
+}
+
+.pricing .pricing-package ul li {
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    font-style: 14px;
+    color: #86878b;
+    line-height: 40px;
+    vertical-align: middle;
+    background-color: #ffffff;
+}
+
+.pricing .pricing-package ul li:first-child {
+    background-color: #ff8b38;
+    font-weight: bold;
+    color: #ffffff;
+    display: none;
+}
+
+.pricing .pricing-package .heading {
+    border-bottom: 5px solid #ff8b38;
+}
+
+.pricing .pricing-package:hover .heading {
+    border-bottom: none;
+}
+
+.pricing .pricing-package:hover ul li:first-child {
+    display: block;
+}
+
+/* Pricing End */
+
+/* Testimonial Start */
+
+.testimonial {
+    background-color: #ffffff;
+    padding-top: 108px;
+    padding-bottom: 97px;
+}
+
+.testimonial h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    color: #212121;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.testimonial figure img {
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.testimonial p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #86878b;
+    text-align: center;
+}
+
+.testimonial .customers {
+    padding-top: 55px;
+}
+
+.testimonial .customers ul {
+    margin: 0 auto;
+}
+
+.testimonial .customers ul li {
+    float: left;
+    padding-right: 120px;
+}
+
+.testimonial .customers ul li:last-child {
+    padding-right: 0px;
+}
+
+.testimonial .customers ul li .upper {
+    background-image: url(../images/testimonial-review-box.png);
+    background-repeat: no-repeat;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #86878b;
+    padding: 24px 13px 37px 12px;
+}
+
+.testimonial .customers ul li .upper p {
+    width: 248px;
+    text-align: left;
+}
+
+.testimonial .customers ul li .profile {
+    padding-top: 17px;
+}
+
+.testimonial .customers ul li .profile figure {
+    padding-right: 15px;
+}
+
+.testimonial .customers ul li .profile .user-info h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    padding-bottom: 8px;
+}
+
+.testimonial .customers ul li .profile .user-info p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    color: #86878b;
+}
+
+/* Testimonial End */
+
+/* Custom Section Start */
+
+.custom-section {
+    background-image: url(../images/custom-section-background.png);
+    background-size: cover;
+    padding-top: 108px;
+    padding-bottom: 97px;
+}
+
+.custom-section h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.custom-section figure img {
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.custom-section p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.custom-section a {
+    text-decoration: none;
+    display: block;
+    width: 137px;
+    margin: 0 auto;
+}
+
+.custom-section a span.download-button {
+    padding: 14px 38px 13px 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffffff;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.custom-section a:hover .download-button {
+    border-color: #ff9b51;
+    color: #ff9b51;
+}
+
+/* Custom Section End */
+
+/* Contact start */
+
+.contact {
+    background-color: #ffffff;
+    padding-top: 108px;
+    padding-bottom: 97px;
+}
+
+.contact h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    color: #212121;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.contact figure img {
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.contact p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #86878b;
+    text-align: center;
+}
+
+.contact form {
+    padding: 80px 13px 0px 16px;
+}
+
+.contact form .clearfix {
+    padding-bottom: 43px;
+}
+
+.contact form .left {
+    width: 423px;
+}
+
+.contact form .right {
+    width: 527px;
+}
+
+.contact form .left input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #d6d6d6;
+    width: 100%;
+    line-height: 31px;
+    vertical-align: middle;
+    margin-top: 30px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #bdbdbd;
+}
+
+.contact form .left input:first-child {
+    margin-top: 0px;
+}
+
+.contact form .right textarea {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #d6d6d6;
+    width: 100%;
+    vertical-align: middle;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #bdbdbd;
+}
+
+.contact form .form-button {
+    display: block;
+    width: 146px;
+    margin: 0 auto;
+}
+
+.contact form .form-button input {
+    background-color: #ff9b51;
+    display: block;
+    width: 100%;
+    border-style: none;
+    cursor: pointer;
+    line-height: 44px;
+    color: #ffffff;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+/* Contact end */
 
 /* footer start */
 
