@@ -154,7 +154,6 @@ function carousel() {
     imageIndex = i + 1;
     console.log('Image index: ', imageIndex);
     currentMarginLeft = -(i * IMAGE_WIDTH);
-    console.log(currentMarginLeft);
 
     stopPoint = currentMarginLeft;
     if (stopPoint != 0) {
