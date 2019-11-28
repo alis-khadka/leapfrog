@@ -20,10 +20,8 @@ function carousel() {
   sliderContainer.style.overflow = 'hidden';
 
   var numOfImg = imageContainer.childElementCount;
-  console.log('no of images', numOfImg);
 
   imageContainer.style.width = (numOfImg * IMAGE_WIDTH) + 'px';
-  console.log('image cocntainer width', imageContainer.style.width);
 
   // Arrow Buttons
   previousButton.style.position = 'absolute';
