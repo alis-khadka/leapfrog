@@ -83,7 +83,7 @@ function box(width, height, boxNum, boundaryLength, ant) {
       box.style.cursor = 'pointer';
 
       if (that.ant) {
-        box.style.backgroundImage = 'url(../images/ant-new.gif)';
+        box.style.backgroundImage = 'url(/images/ant-new.gif)';
         box.style.backgroundPosition = 'center';
         box.style.backgroundRepeat = 'no-repeat';
         box.style.backgroundSize = 'contain';
