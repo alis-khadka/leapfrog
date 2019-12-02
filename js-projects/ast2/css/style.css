@@ -1,0 +1,33 @@
+
+#slider-container {
+  width: 400px;
+  height: 400px;
+  background-color: pink;
+  position: relative;
+  margin: 0 auto;
+}
+
+#image-container {
+  float: left;
+}
+
+#slider-container #image-container figure {
+  float: left;
+}
+
+#prev {
+  background-image: url(../images/prev.png);
+}
+
+#prev:hover {
+  background-color: rgba(192, 192, 192, 0.6);
+}
+
+#next {
+  background-image: url(../images/next.png);
+}
+
+#next:hover {
+  background-color: rgba(192, 192, 192, 0.6);
+}
+

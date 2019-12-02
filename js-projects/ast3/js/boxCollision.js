@@ -127,8 +127,8 @@ function box(width, height, boxNum, boundaryLength, ant) {
     for (var j = 0; j < that.boxNum; j++) {
       for (var k = 0; k < j; k++) {
         if (
-          ((Math.abs(that.boxesPosition[j].x - that.boxesPosition[k].x) < that.width) &&
-            (Math.abs(that.boxesPosition[j].y - that.boxesPosition[k].y) < that.height))
+          ((Math.abs(that.boxesPosition[j].x - that.boxesPosition[k].x) <= that.width) &&
+            (Math.abs(that.boxesPosition[j].y - that.boxesPosition[k].y) <= that.height))
         ) {
           // clearInterval(that.simulate);
           var decision = Math.random();
