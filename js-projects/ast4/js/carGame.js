@@ -417,7 +417,7 @@ function CarGame(parentNode) {
 
     gameContainer.removeChild(that.scoreHeading);
     gameContainer.removeChild(that.highScoreHeading);
-    that.roadTop = -8640;
+    that.roadTop = -8540;
     that.road.style.top = that.roadTop + 'px';
     // gameContainer.removeChild(that.road);
   }
