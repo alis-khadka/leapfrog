@@ -112,6 +112,7 @@ function CarGame(parentNode) {
 
   this.road;
   this.changeRoadImage = 1;
+  this.roadTop = -8640;
 
   this.scoreHeading;
   this.highScoreHeading;
@@ -131,7 +132,7 @@ function CarGame(parentNode) {
   this.opponentsTopPosition = [];
   this.opponentsLane = [];
   this.opponentInitialTopPosition = 9;
-  this.OPPONENT_SPEED = 15;
+  this.OPPONENT_SPEED = 5.3;
   this.opponentPassed = true;
 
   this.speedIncrease = 10;
@@ -144,16 +145,19 @@ function CarGame(parentNode) {
 
   this.init = function () {
 
-
     that.road = document.createElement('div');
     gameContainer.appendChild(that.road);
     that.road.style.backgroundPosition = 'center';
-    that.road.style.backgroundRepeat = 'no-repeat';
+    // that.road.style.backgroundRepeat = 'no-repeat';
+    that.road.style.backgroundRepeat = 'repeat-y';
+    that.road.style.backgroundImage = 'url("../images/road1.png")';
+    that.road.style.backgroundSize = '100%';
     that.road.style.position = 'absolute';
-    that.road.style.height = '960px';
+    that.road.style.overflow = 'hidden';
+    that.road.style.height = '9600px';
     that.road.style.width = '540px';
     that.road.style.left = '30px';
-    that.road.style.top = '40px';
+    that.road.style.top = that.roadTop + 'px';
 
     that.scoreHeading = document.createElement('h3');
     gameContainer.appendChild(that.scoreHeading);
@@ -181,7 +185,7 @@ function CarGame(parentNode) {
     that.player.style.position = 'absolute';
     that.player.style.top = that.playerTopPosition + 'px';
 
-    that.simulate = setInterval(that.runCarGame, 120);
+    that.simulate = setInterval(that.runCarGame, 30);
 
   }
 
@@ -220,24 +224,32 @@ function CarGame(parentNode) {
 
   this.moveRoad = function () {
 
-    switch (that.changeRoadImage) {
+    that.roadTop += 5;
+    that.road.style.top = that.roadTop + 'px'; 
 
-      case 1:
-        that.road.style.backgroundImage = 'url("../images/road1.png")';
-        that.changeRoadImage++;
-        break;
-
-      case 2:
-        that.road.style.backgroundImage = 'url("../images/road2.png")';
-        that.changeRoadImage++;
-        break;
-
-      case 3:
-        that.road.style.backgroundImage = 'url("../images/road3.png")';
-        that.changeRoadImage = 1;
-        break;
-
+    if(that.roadTop == 0) {
+      that.roadTop = -8640;
     }
+
+
+    // switch (that.changeRoadImage) {
+
+    //   case 1:
+    //     that.road.style.backgroundImage = 'url("../images/road1.png")';
+    //     that.changeRoadImage++;
+    //     break;
+
+    //   case 2:
+    //     that.road.style.backgroundImage = 'url("../images/road2.png")';
+    //     that.changeRoadImage++;
+    //     break;
+
+    //   case 3:
+    //     that.road.style.backgroundImage = 'url("../images/road3.png")';
+    //     that.changeRoadImage = 1;
+    //     break;
+
+    // }
 
   }
 
@@ -424,10 +436,14 @@ function CarGame(parentNode) {
 
     gameContainer.removeChild(that.scoreHeading);
     gameContainer.removeChild(that.highScoreHeading);
+    that.roadTop = -8640;
+    that.road.style.top = that.roadTop + 'px';
+    // gameContainer.removeChild(that.road);
   }
 
 }
 
 // var game = new CarGame(parentNode).init();
 var game = new StartGame(parentNode).init();
+// var game = new StartGame(parentNode).init();
 // var game = new CarGame(parentNode).generateOpponents();
