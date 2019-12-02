@@ -111,8 +111,8 @@ function CarGame(parentNode) {
   this.parentNode = parentNode;
 
   this.road;
-  this.changeRoadImage = 1;
   this.roadTop = -8640;
+  this.roadSpeed = 5;
 
   this.scoreHeading;
   this.highScoreHeading;
@@ -224,32 +224,12 @@ function CarGame(parentNode) {
 
   this.moveRoad = function () {
 
-    that.roadTop += 5;
+    that.roadTop += that.roadSpeed;
     that.road.style.top = that.roadTop + 'px'; 
 
-    if(that.roadTop == 0) {
+    if(that.roadTop > -1) {
       that.roadTop = -8640;
     }
-
-
-    // switch (that.changeRoadImage) {
-
-    //   case 1:
-    //     that.road.style.backgroundImage = 'url("../images/road1.png")';
-    //     that.changeRoadImage++;
-    //     break;
-
-    //   case 2:
-    //     that.road.style.backgroundImage = 'url("../images/road2.png")';
-    //     that.changeRoadImage++;
-    //     break;
-
-    //   case 3:
-    //     that.road.style.backgroundImage = 'url("../images/road3.png")';
-    //     that.changeRoadImage = 1;
-    //     break;
-
-    // }
 
   }
 
@@ -409,6 +389,7 @@ function CarGame(parentNode) {
         if (that.playerScore >= that.speedIncrease) {
           that.OPPONENT_SPEED += 5;
           that.speedIncrease += 10;
+          that.roadSpeed +=5;
           console.log('speed: ', that.OPPONENT_SPEED);
         }
       }
