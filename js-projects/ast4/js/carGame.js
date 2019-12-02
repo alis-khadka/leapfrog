@@ -172,7 +172,7 @@ function CarGame(parentNode) {
 
     that.player = document.createElement('div');
     gameContainer.appendChild(that.player);
-    that.player.style.backgroundImage = 'url("../images/carPlayer.png")';
+    that.player.style.backgroundImage = 'url(../images/carPlayer.png)';
     that.player.style.height = that.CAR_LENGTH + 'px';
     that.player.style.width = that.CAR_WIDTH + 'px';
     that.player.style.backgroundSize = 'contain';
