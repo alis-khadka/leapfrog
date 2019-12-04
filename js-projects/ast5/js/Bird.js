@@ -10,23 +10,13 @@ function Bird(height, width, parentClass) {
 
   this.jumpOffset = 55;
 
-  // this.hitAudio = new Audio('./audio/hit.wav');
-  // this.dieAudio = new Audio('./audio/die.wav');
-
-  this.birdMoveOffset = 80;
-  this.birdAnimationSpeed = 4;
-
-  this.moveRotateAngle = -35;
-
-  this.gravityEffectIntervalId;
-  this.dropByGravity = 0.01;
-  this.dropIncreaseBy = 0.09;
-  this.MAX_DROP_RATE = 0.25;
-  this.gravityEffectIntervalTime = 10;
-
   this.zIndex = 50;
 
-  this.animateId;
+  this.MAX_GRAVITY = 8;
+  this.gravityInitial = 3;
+  this.gravity = this.gravityInitial;
+  this.gravityIncrease = 0.8;
+  this.gravityIncrement = 0.2;
 
   this.bird;
   this.imageContainer;
@@ -54,13 +44,10 @@ function Bird(height, width, parentClass) {
 
     that.bird.appendChild(this.imageContainer);
 
-    // this.gravityEffect();
-
     return this.bird;
   }
 
   this.runBird = function () {
-    // that.moveBird();
     that.initKeyEvent();
     that.gravityPull();
   }
@@ -98,8 +85,22 @@ function Bird(height, width, parentClass) {
   }
 
   this.gravityPull = function () {
-    that.top += 6;
+
+
+    that.gravity += that.gravityIncrease;
+    that.gravityIncrease += that.gravityIncrement;
+    
+    if (that.gravity > that.MAX_GRAVITY) {
+      that.gravity = that.MAX_GRAVITY;
+    }
+
+    that.top += that.gravity;
     this.drawBird();
+  }
+
+  this.removeKeyEvent = function () {
+    document.onkeypress = null;
+    console.log('called');
   }
 
 }

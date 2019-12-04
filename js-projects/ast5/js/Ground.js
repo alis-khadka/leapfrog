@@ -49,6 +49,8 @@ function Ground(width, height, parentClass) {
   this.checkCollision = function () {
     if ((Math.abs(that.groundTop - parentClass.birdClass.top)) <= parentClass.birdClass.height) {
       clearInterval(parentClass.gameLoop);
+      parentClass.birdClass.removeKeyEvent();
+      console.log('ground');
     }
 
   }
