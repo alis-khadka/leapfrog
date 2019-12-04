@@ -244,9 +244,9 @@ function CarGame(parentNode, gameContainer) {
       if (!that.bulletNum) {
         that.generatePowerUp();
       }
-      
+
       if (that.opponents.length == 0) {
-        if (Math.random() < 0.5){
+        if (Math.random() < 0.5) {
           that.opponentSpawnNum = 2;
         } else {
           that.opponentSpawnNum = 1;
@@ -263,7 +263,7 @@ function CarGame(parentNode, gameContainer) {
     that.isGameOver();
 
     if (that.bulletNum) {
-      // that.isBulletHitOpponent();
+      that.isBulletHitOpponent();
       that.isBulletPassed();
     }
 
@@ -386,20 +386,21 @@ function CarGame(parentNode, gameContainer) {
 
     that.powerUp.style.height = that.CAR_LENGTH + 'px';
     that.powerUp.style.width = that.CAR_WIDTH + 'px';
-    
+
     that.powerUp.style.position = 'absolute';
     that.powerUpTop = that.powerUpInitialTop;
     that.powerUp.style.top = that.powerUpTop + 'px';
     that.powerUpLane = that.randomOpponentPosition();
     that.powerUp.style.left = that.powerUpLane + 'px';
-    
+
     that.gameContainer.appendChild(that.powerUp);
   }
 
   this.shootBullet = function () {
+    var hasBullet = that.gameContainer.contains(that.bullet);
+    if(!hasBullet) that.gameContainer.appendChild(that.bullet);
     that.bulletTopPosition -= 10;
     that.bullet.style.top = that.bulletTopPosition + 'px';
-
   }
 
   this.generateOpponents = function (opponentSpawnNum) {
@@ -500,23 +501,32 @@ function CarGame(parentNode, gameContainer) {
 
   this.isBulletHitOpponent = function () {
     for (var i = 0; i < that.opponents.length; i++) {
-
+      var hasBullet = that.gameContainer.contains(that.bullet);
 
       if (
-        (Math.abs(that.opponentsTopPosition[i] - that.bulletTopPosition) < (that.CAR_LENGTH-that.BULLET_LENGTH)) &&
-        (Math.abs(that.opponentsLane[i] - that.bulletLane) < that.CAR_WIDTH)
+        (Math.abs(that.opponentsTopPosition[i] - that.bulletTopPosition) < (that.CAR_LENGTH - that.BULLET_LENGTH)) &&
+        (Math.abs(that.opponentsLane[i] - that.bulletLane) < that.CAR_WIDTH) && hasBullet
       ) {
-        console.log('BULLET HIT');
         that.gameContainer.removeChild(that.opponents[i]);
+        that.opponents.splice(i, 1);
         that.gameContainer.removeChild(that.bullet);
-        
+        that.toShoot = false;
+        that.makeBullets = true;
+        that.bulletTopPosition = 780;
+        that.bulletNum -= 1;
+        console.log(that.opponents);
+
+        if (that.opponents.length == 0) {
+          that.opponentPassed = true;
+          console.log(that.opponentPassed);
+        }
       }
     }
   }
 
   this.isOpponentPassed = function () {
     // var length = that.opponents.length;
-    for (var i = 0; i < that.opponentSpawnNum; i++) {
+    for (var i = 0; i < that.opponents.length; i++) {
 
       if (
         (Math.abs(that.opponentsTopPosition[i]) >= GAME_CONTAINER_HEIGHT)
@@ -531,15 +541,18 @@ function CarGame(parentNode, gameContainer) {
         console.log('Opponent passed');
         that.opponentsTopPosition[i] = 0;
         that.opponentsLane[i] = 0;
+        for (var j = 0; j < that.opponentSpawnNum; j++) {
+          var currentOpponent = that.opponents[j];
+          // that.removeCurrentOpponent(currentOpponent);
+          if (currentOpponent) {
+            that.gameContainer.removeChild(that.opponents[j]);
 
-        var currentOpponent = that.opponents[i];
-        that.removeCurrentOpponent(currentOpponent);
-        // that.gameContainer.removeChild(that.opponents[i]);
+            that.opponents.splice(j, 1);
+          }
+          console.log('num opponent after removing: ', that.opponents.length);
+          console.log(that.opponents);
+        }
 
-        that.opponents.splice(that.opponents.indexOf(that.opponents[i]), 1);
-        console.log('no opponent after removing: ', that.opponents.length);
-        console.log(that.opponents);
-        that.opponentPassed = true;
         console.log('Opponent passed: ', that.opponentPassed);
 
         if (that.playerScore >= that.speedIncrease) {
@@ -549,27 +562,32 @@ function CarGame(parentNode, gameContainer) {
           console.log('speed: ', that.OPPONENT_SPEED);
         }
       }
+
+      if (that.opponents.length == 0) {
+        that.opponentPassed = true;
+      }
     }
   }
 
   this.isBulletPassed = function () {
-    if (that.bulletTopPosition <= 0) {
+    var hasBullet = that.gameContainer.contains(that.bullet);
+    if (that.bulletTopPosition <= 0 && hasBullet) {
       that.toShoot = false;
       that.makeBullets = true;
       console.log(that.toShoot);
       that.gameContainer.removeChild(that.bullet);
+
       that.bulletTopPosition = 780;
       that.bulletNum -= 1;
       console.log('bullet remaining: ', that.bulletNum);
-
-
-
     }
   }
 
 
   this.removeCurrentOpponent = function (currentOpponent) {
-    that.gameContainer.removeChild(currentOpponent);
+    if (currentOpponent) {
+      that.gameContainer.removeChild(currentOpponent);
+    }
   }
 
   this.randomg = function (min, max) {
