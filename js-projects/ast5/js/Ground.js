@@ -1,4 +1,4 @@
-function Ground (width, height, parentClass) {
+function Ground(width, height, parentClass) {
   var that = this;
 
   this.width = width;
@@ -7,6 +7,7 @@ function Ground (width, height, parentClass) {
   this.ground;
   this.groundInitialLeft = 0;
   this.groundLeft = this.groundInitialLeft;
+  this.groundTop = 550;
 
 
   this.init = function () {
@@ -19,8 +20,8 @@ function Ground (width, height, parentClass) {
     that.ground.style.zIndex = 90;
     that.ground.style.backgroundSize = 'contain';
     that.ground.style.left = that.groundLeft + 'px';
-    that.ground.style.top = '550px';
-    
+    that.ground.style.top = that.groundTop + 'px';
+
     // that.move();
 
     return that.ground;
@@ -28,9 +29,10 @@ function Ground (width, height, parentClass) {
 
   this.runGround = function () {
     // that.moveIntervalId = setInterval(function () {
-      that.groundLeft -= 3;
-      that.drawGround();
-      that.resetGround();
+    that.groundLeft -= 3;
+    that.drawGround();
+    that.resetGround();
+    that.checkCollision();
     // }, 100);
   }
 
@@ -42,5 +44,12 @@ function Ground (width, height, parentClass) {
     if (that.groundLeft <= -230) {
       that.groundLeft = that.groundInitialLeft;
     }
+  }
+
+  this.checkCollision = function () {
+    if ((Math.abs(that.groundTop - parentClass.birdClass.top)) <= parentClass.birdClass.height) {
+      clearInterval(parentClass.gameLoop);
+    }
+
   }
 }

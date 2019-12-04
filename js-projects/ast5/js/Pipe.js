@@ -120,7 +120,8 @@ function Pipe(width, height, parentClass) {
 
         case 2:
           if ((Math.abs(that.pipeLeft2 - parentClass.birdClass.left) <= parentClass.birdClass.width) &&
-            (Math.abs((that.pipeFlipTop + that.height) - parentClass.birdClass.top) <= 5)
+            (Math.abs((that.pipeFlipTop + that.height) - parentClass.birdClass.top) <= 5
+            )
           ) {
             console.log((Math.abs((that.pipeFlipTop + that.height) - parentClass.birdClass.top)));
             clearInterval(parentClass.gameLoop);
