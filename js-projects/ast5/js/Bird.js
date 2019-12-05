@@ -58,6 +58,9 @@ function Bird(height, width, parentClass) {
   }
 
   this.initKeyEvent = function () {
+    
+    // that.bird.addEventListener('keyp')
+    
     document.onkeypress = function (event) {
       if (event.keyCode == 32) {
         that.jumpBird();
@@ -85,7 +88,6 @@ function Bird(height, width, parentClass) {
   }
 
   this.gravityPull = function () {
-
 
     that.gravity += that.gravityIncrease;
     that.gravityIncrease += that.gravityIncrement;

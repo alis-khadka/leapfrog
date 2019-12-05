@@ -1,4 +1,4 @@
-function GameContainer(width, height, parentContainer) {
+function GameContainer(width, height, parentContainer, key_code) {
   var that = this;
   this.width = width;
   this.height = height;
@@ -46,7 +46,7 @@ function GameContainer(width, height, parentContainer) {
     }
 
     this.initBird = function () {
-      that.birdClass = new Bird(40, 40, that);
+      that.birdClass = new Bird(40, 40, that, key_code);
       // this.pipeGapping = this.birdClass.birdMoveOffset + this.spaceForBirdToPass;
       that.container.appendChild(that.birdClass.init());
     }
