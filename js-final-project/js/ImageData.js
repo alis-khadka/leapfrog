@@ -1,4 +1,4 @@
-class ImageData {
+class DataImage {
 
   constructor() {
     this.img = document.getElementById('uploaded-image');
