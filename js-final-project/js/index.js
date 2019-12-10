@@ -1,5 +1,4 @@
-let image = new DataImage();
-
 window.addEventListener('load', function () {
+  let image = new PhotoData();
   image.eventListener(image);
-})
+});

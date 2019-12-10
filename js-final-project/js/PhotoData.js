@@ -1,4 +1,4 @@
-class DataImage {
+class PhotoData {
 
   constructor() {
     this.img = document.getElementById('uploaded-image');
@@ -188,7 +188,7 @@ class DataImage {
 
   }
 
-  getNoiseReduction()
+  // getNoiseReduction()
 
   getThresholdingValue(sourceImage, threshold) {
     let grayscalePixels2D = this.changeTo2dArray(sourceImage.grayscaleData);
@@ -227,18 +227,19 @@ class DataImage {
     let numOfPixels = windowSize * windowSize;
 
     for (let i = 0; i < height; i += windowHeight) {
-      let sum = 0;
       
       if (i >= (height - windowHeight)) {
         i = (height - windowHeight);
       }
-
+      
       for (let j = 0; j < width; j += windowWidth) {
-
+        
         if (j >= (width - windowWidth)) {
           j = (width - windowWidth);
         }
-
+        
+        let sum = 0;
+        
         for (let m = i; m < (i + windowHeight); m++) {
 
           for (let n = j; n < (j + windowWidth); n += 4) {
@@ -247,24 +248,23 @@ class DataImage {
 
         }
         console.log('grayscale: ', grayscalePixels2D);
-        let localThreshold = (sum / numOfPixels);
-        sum = 0;
+        let localThreshold = Math.floor(sum / numOfPixels);
         console.log('local threshold', localThreshold);
-
+        
         for (let m = i; m < (i + windowHeight); m++) {
-
+          
           for (let n = j; n < (j + windowWidth); n += 4) {
             let binaryValue = (grayscalePixels2D[m][n] >= localThreshold) ? 255 : 0;
-
+            
             binaryPixels2D[m][n] = binaryValue;
             binaryPixels2D[m][n + 1] = binaryValue;
             binaryPixels2D[m][n + 2] = binaryValue;
             binaryPixels2D[m][n + 3] = grayscalePixels2D[m][n + 3];
           }
-
+          
         }
-
-
+        
+        sum = 0;
 
       }
     }
