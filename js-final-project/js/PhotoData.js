@@ -7,11 +7,14 @@ class PhotoData {
     // Canvas to draw the image
     this.canvas = document.getElementById('uploaded-image-canvas');
     this.context = this.canvas.getContext('2d');
-    // canvas.style.margin = '0 auto';
 
     // Canvas for Grayscaling
     this.grayscaleCanvas = document.getElementById('grayscale-image');
     this.grayscaleContext = this.grayscaleCanvas.getContext('2d');
+
+    // Canvas for Noise Reduced Grayscale
+    this.noiseReducedCanvas = document.getElementById('noise-reduced-image');
+    this.noiseReducedContext = this.noiseReducedCanvas.getContext('2d');
 
     // Canvas for Binary Image (Thresholding)
     this.thresholdCanvas = document.getElementById('threshold-image');
@@ -20,14 +23,18 @@ class PhotoData {
     // Headings
     this.uploadHeading = document.getElementById('upload-heading');
     this.grayscaleHeading = document.getElementById('grayscale-heading');
+    this.noiseReducedHeading = document.getElementById('noise-reduced-heading');
     this.thresholdHeading = document.getElementById('threshold-heading');
 
     this.uploadHeading.style.display = 'none';
     this.grayscaleHeading.style.display = 'none';
+    this.noiseReducedHeading.style.display = 'none';
     this.thresholdHeading.style.display = 'none';
 
+    // Image Data
     this.imageData;
     this.grayscaleData;
+    this.noiseReducedData;
     this.thresholdData;
 
   }
@@ -164,12 +171,24 @@ class PhotoData {
     this.getGrayscaleValue(sourceImage);
     this.initializeHeading(sourceImage.grayscaleHeading);
 
-    console.log(sourceImage.imageData);
-    console.log(sourceImage.grayscaleData);
+    console.log('imageData: ', sourceImage.imageData);
+    console.log('grayscaleData: ', sourceImage.grayscaleData);
 
     this.initializeCanvas(sourceImage.grayscaleCanvas, sourceImage);
 
     sourceImage.grayscaleContext.putImageData(sourceImage.grayscaleData, 0, 0);
+
+    // Create Noise Reduce Data
+    sourceImage.noiseReducedData = sourceImage.noiseReducedContext.createImageData(sourceImage.grayscaleData);
+
+    // Noise reduction
+    this.getNoiseReduction(sourceImage, 2, 'gaussian filter');
+    this.initializeHeading(sourceImage.noiseReducedHeading);
+    this.initializeCanvas(sourceImage.noiseReducedCanvas, sourceImage);
+
+    console.log('noiseReducedData: ', sourceImage.noiseReducedData);
+
+    sourceImage.noiseReducedContext.putImageData(sourceImage.noiseReducedData, 0, 0);
 
     // Create Threshold Data
     sourceImage.thresholdData = sourceImage.thresholdContext.createImageData(sourceImage.grayscaleData);
@@ -178,7 +197,7 @@ class PhotoData {
     // this.getThresholdingValue(sourceImage, 175);
     this.getLocalThresholdingValue(sourceImage, 5);
 
-    console.log(sourceImage.thresholdData);
+    console.log('threshold Data: ', sourceImage.thresholdData);
 
     // Binary Image
     this.initializeHeading(sourceImage.thresholdHeading);
@@ -188,7 +207,190 @@ class PhotoData {
 
   }
 
-  // getNoiseReduction()
+  getNoiseReduction(sourceImage, kernelSize, method) {
+    let kernelRadius = (kernelSize - 1) / 2;
+    let standardDeviation = kernelRadius / Math.log10(255);
+
+    let gaussianKernel = this.getGaussianKernel(
+      kernelRadius,
+      kernelSize,
+      standardDeviation
+    );
+
+    console.log('gaussianKernel: ', gaussianKernel);
+
+    switch (method) {
+
+      // By default, Mean value for reducing noise,
+      case undefined:
+        method = 'mean filter';
+        this.applyMeanFilter(
+          sourceImage,
+          kernelSize
+        );
+        break;
+
+      // Gaussian Blur for reducing noise.
+      case 'gaussian filter':
+        this.applyGaussianFilter(
+          sourceImage,
+          gaussianKernel
+        );
+
+    }
+  }
+
+  applyMeanFilter(sourceImage, kernelSize) {
+    let grayscalePixels2D = this.changeTo2dArray(sourceImage.grayscaleData);
+    let noiseReducedPixels2D = this.changeTo2dArray(sourceImage.noiseReducedData);
+
+    let widthGrayscale = grayscalePixels2D[0].length;
+    let heightGrayscale = grayscalePixels2D.length;
+
+    let widthKernel = kernelSize * 4;
+    let heightKernel = kernelSize;
+
+    let numOfPixels = heightKernel * (widthKernel / 4);
+
+    for (let i = 0; i < heightGrayscale; i += heightKernel) {
+
+      if (i >= (heightGrayscale - heightKernel)) {
+        i = (heightGrayscale - heightKernel);
+      }
+
+      for (let j = 0; j < widthGrayscale; j += widthKernel) {
+
+        if (j >= (widthGrayscale - widthKernel)) {
+          j = (widthGrayscale - widthKernel);
+        }
+
+        let sum = 0;
+
+        for (let m = i; m < (i + heightKernel); m++) {
+
+
+          for (let n = j; n < (j + widthKernel); n += 4) {
+            sum += grayscalePixels2D[m][n];
+
+          }
+
+        }
+
+        let meanValue = Math.round(sum / numOfPixels);
+
+        for (let m = i; m < (i + heightKernel); m++) {
+
+
+          for (let n = j; n < (j + widthKernel); n += 4) {
+
+            noiseReducedPixels2D[m][n] = meanValue;
+            noiseReducedPixels2D[m][n + 1] = meanValue;
+            noiseReducedPixels2D[m][n + 2] = meanValue;
+            noiseReducedPixels2D[m][n + 3] = grayscalePixels2D[m][n + 3]; // No change in Alpha value
+
+
+          }
+
+        }
+
+        meanValue = 0;
+      }
+    }
+
+    let noiseReducedPixels1D = this.changeTo1dArray(noiseReducedPixels2D);
+    this.assign1dToImageData(sourceImage.noiseReducedData, noiseReducedPixels1D);
+  }
+
+  applyGaussianFilter(sourceImage, gaussianKernel) {
+    let grayscalePixels2D = this.changeTo2dArray(sourceImage.grayscaleData);
+    let noiseReducedPixels2D = this.changeTo2dArray(sourceImage.noiseReducedData);
+
+    let widthGrayscale = grayscalePixels2D[0].length;
+    let heightGrayscale = grayscalePixels2D.length;
+
+    let widthKernel = gaussianKernel[0].length;
+    let heightKernel = gaussianKernel.length;
+
+    // let numOfPixels = heightKernel * (widthKernel / 4);
+
+    for (let i = 0; i < heightGrayscale; i += heightKernel) {
+
+      if (i >= (heightGrayscale - heightKernel)) {
+        i = (heightGrayscale - heightKernel);
+      }
+
+      for (let j = 0; j < widthGrayscale; j += widthKernel) {
+
+        if (j >= (widthGrayscale - widthKernel)) {
+          j = (widthGrayscale - widthKernel);
+        }
+
+
+
+        for (let kernelY = 0, m = i; m < (i + heightKernel); kernelY += 1, m++) {
+          // let kernelX = 0;
+
+          for (let kernelX = 0, n = j; n < (j + widthKernel); kernelX += 4, n += 4) {
+
+            noiseReducedPixels2D[m][n] = Math.round(grayscalePixels2D[m][n] * gaussianKernel[kernelY][kernelX]);
+            noiseReducedPixels2D[m][n + 1] = Math.round(grayscalePixels2D[m][n + 1] * gaussianKernel[kernelY][kernelX + 1]);
+            noiseReducedPixels2D[m][n + 2] = Math.round(grayscalePixels2D[m][n + 2] * gaussianKernel[kernelY][kernelX + 2]);
+            noiseReducedPixels2D[m][n + 3] = grayscalePixels2D[m][n + 3]; // No change in Alpha value
+
+            // kernelX += 4;
+          }
+
+          // kernelY += 1;
+
+        }
+      }
+    }
+
+    let noiseReducedPixels1D = this.changeTo1dArray(noiseReducedPixels2D);
+    this.assign1dToImageData(sourceImage.noiseReducedData, noiseReducedPixels1D);
+
+  }
+
+  getGaussianKernel(radius, kernelSize, standardDeviation) {
+    let height = kernelSize;
+    let width = kernelSize * 4;
+
+    let PI = Math.PI;
+
+    let gaussianKernel = new Array(height);
+
+    for (let i = 0; i < height; i++) {
+      gaussianKernel[i] = new Array(width);
+
+      for (let j = 0; j < width; j += 4) {
+
+        // Calculating gaussian value 
+        let x = radius - (j / 4);
+        let y = radius - i;
+
+        let exp = Math.exp(
+          -(
+            (x * x) + (y * y)
+            /
+            (2 * (standardDeviation * standardDeviation))
+          )
+        );
+
+        let gaussianValue = exp / (2 * PI * standardDeviation * standardDeviation);
+
+        // Assigning gaussian value to gaussian kernel
+
+        gaussianKernel[i][j] = gaussianValue;
+        gaussianKernel[i][j + 1] = gaussianValue;
+        gaussianKernel[i][j + 2] = gaussianValue;
+        // gaussianKernel[i][j + 3] is not assigned because of Alpha pixel.
+
+      }
+    }
+
+    return gaussianKernel;
+
+  }
 
   getThresholdingValue(sourceImage, threshold) {
     let grayscalePixels2D = this.changeTo2dArray(sourceImage.grayscaleData);
@@ -215,7 +417,7 @@ class PhotoData {
   }
 
   getLocalThresholdingValue(sourceImage, windowSize) {
-    let grayscalePixels2D = this.changeTo2dArray(sourceImage.grayscaleData);
+    let grayscalePixels2D = this.changeTo2dArray(sourceImage.noiseReducedData);
     let binaryPixels2D = this.changeTo2dArray(sourceImage.thresholdData);
 
     let width = grayscalePixels2D[0].length;
@@ -227,19 +429,19 @@ class PhotoData {
     let numOfPixels = windowSize * windowSize;
 
     for (let i = 0; i < height; i += windowHeight) {
-      
+
       if (i >= (height - windowHeight)) {
         i = (height - windowHeight);
       }
-      
+
       for (let j = 0; j < width; j += windowWidth) {
-        
+
         if (j >= (width - windowWidth)) {
           j = (width - windowWidth);
         }
-        
+
         let sum = 0;
-        
+
         for (let m = i; m < (i + windowHeight); m++) {
 
           for (let n = j; n < (j + windowWidth); n += 4) {
@@ -247,23 +449,23 @@ class PhotoData {
           }
 
         }
-        console.log('grayscale: ', grayscalePixels2D);
+
         let localThreshold = Math.floor(sum / numOfPixels);
-        console.log('local threshold', localThreshold);
-        
+        // console.log('local threshold', localThreshold);
+
         for (let m = i; m < (i + windowHeight); m++) {
-          
+
           for (let n = j; n < (j + windowWidth); n += 4) {
             let binaryValue = (grayscalePixels2D[m][n] >= localThreshold) ? 255 : 0;
-            
+
             binaryPixels2D[m][n] = binaryValue;
             binaryPixels2D[m][n + 1] = binaryValue;
             binaryPixels2D[m][n + 2] = binaryValue;
             binaryPixels2D[m][n + 3] = grayscalePixels2D[m][n + 3];
           }
-          
+
         }
-        
+
         sum = 0;
 
       }
@@ -271,7 +473,6 @@ class PhotoData {
 
     let binaryPixels1D = this.changeTo1dArray(binaryPixels2D);
     this.assign1dToImageData(sourceImage.thresholdData, binaryPixels1D);
-
 
   }
 
